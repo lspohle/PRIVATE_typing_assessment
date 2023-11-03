@@ -5,7 +5,14 @@ int main() {
 
 	if(!typing.openFile())
 		return 1;
-	typing.promptUserToType();
+
+	typing.printPromptToType();
+
+	time_t start, finish;
+	time(&start);
 	typing.examineLineByLine(typing);
+	time(&finish);
+	
+	typing.printFinalStats(difftime(finish, start));
 	return 0;
 }
